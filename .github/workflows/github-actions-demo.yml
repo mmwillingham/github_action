@@ -18,6 +18,6 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "The TEST_USER is ${{secrets.TEST_USER}}."
       - name: Print only the env var
-        run: echo "${{env.TEST_USER}}"
+        run: echo ${{ env.TEST_USER }}
       - name: Print only the secret
         run: echo "${{secrets.OPENSHIFT_SERVER}}"
