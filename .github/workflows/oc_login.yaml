@@ -21,11 +21,15 @@ jobs:
           TEST_USER_VAR: ${{ vars.TEST_USER }}
           
         run: |
-          echo "$TEST_USER" # this line, log your TEST_USER
+          echo "$TEST_USER_SECRET"
+          echo "$TEST_USER_VAR"
+          echo ${{ vars.TEST_USER }}
+          echo ${{ secrets.TEST_USER }}
       
       - name: Echo
         run: |
-          echo "TEST_USER is: " "$TEST_USER" "or" $TEST_USER
+          echo "TEST_USER is: $TEST_USER_SECRET" or $TEST_USER_VAR"
+          echo "TEST_USER is: ${{ vars.TEST_USER_SECRET }} or ${{ vars.TEST_USER_VAR }}"
           
           
       - name: Log in and set context
