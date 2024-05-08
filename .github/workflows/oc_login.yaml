@@ -1,0 +1,33 @@
+name: oc-login Example
+on: [push]
+  # push:
+  # workflow_dispatch:
+  # schedule:
+#     - cron: '0 0 * * *'  # every day at midnight
+
+jobs:
+  login:
+    # This is a github actions environment    
+    environment: dev
+    name: OpenShift Login and Test
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in and set context
+        # In a real workflow, point the 'uses' to a tag.
+        # uses: redhat-actions/oc-login@v1
+        uses: ./
+        with:
+          openshift_server_url: ${{ secrets.OPENSHIFT_SERVER }}
+          # openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
+          openshift_username: ${{ env.TEST_USER }}
+          openshift_password: ${{ secrets.OPENSHIFT_PASSWORD }}
+          # certificate_authority_data: ${{ secrets.CA_DATA }}
+          namespace: ${{ secrets.OPENSHIFT_NAMESPACE }}
+          insecure_skip_tls_verify: true
+
+      - name: Test
+        run: |
+          oc api-resources
