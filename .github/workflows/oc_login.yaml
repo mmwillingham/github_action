@@ -10,7 +10,7 @@ jobs:
     # This is a github actions environment    
     name: OpenShift Login and Test
     runs-on: ubuntu-20.04
-    environment: dev
+    # environment: dev
 
     steps:
       - uses: actions/checkout@v4
