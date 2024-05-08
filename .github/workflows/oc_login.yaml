@@ -8,10 +8,9 @@ on: [push]
 jobs:
   login:
     # This is a github actions environment    
-    # This doesn't work: environment: dev
     name: OpenShift Login and Test
     runs-on: ubuntu-20.04
-
+    environment: dev
 
     steps:
       - uses: actions/checkout@v4
@@ -30,8 +29,13 @@ jobs:
           namespace: ${{ secrets.OPENSHIFT_NAMESPACE }}
           insecure_skip_tls_verify: true
           reveal_cluster_name: true
-          secrets: inherit
-
+          
+      - name: Echo
+        run: |
+          echo ${{ env.TEST_USER }}; echo $openshift_username
+          echo $reveal_cluster_name
+          
+      
       - name: Test
         run: |
           oc api-resources
