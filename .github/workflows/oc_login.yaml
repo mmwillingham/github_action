@@ -17,7 +17,9 @@ jobs:
 
       - name: Echo
         run: |
-          echo "TEST_USER is: " ${{ env.TEST_USER }}
+          env:
+            TEST_USER: ${{ env.TEST_USER }}
+          echo "TEST_USER is: " "$TEST_USER"
           
           
       - name: Log in and set context
