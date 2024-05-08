@@ -8,7 +8,7 @@ on: [push]
 jobs:
   login:
     # This is a github actions environment    
-    environment: dev
+    # This doesn't work: environment: dev
     name: OpenShift Login and Test
     runs-on: ubuntu-20.04
 
