@@ -15,11 +15,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - shell: bash
+        env:
+          TEST_USER: ${{ secrets.SuperSecret }}
+        run: |
+          echo "$TEST_USER" # this line, log your TEST_USER
+      
       - name: Echo
         run: |
-          env:
-            TEST_USER: ${{ env.TEST_USER }}
-          echo "TEST_USER is: " "$TEST_USER"
+          echo "TEST_USER is: " "$TEST_USER" "or" $TEST_USER
           
           
       - name: Log in and set context
