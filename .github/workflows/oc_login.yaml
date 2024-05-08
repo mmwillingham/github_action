@@ -1,5 +1,6 @@
 name: oc-login Example
-on: [push]
+# on: [push]
+on: workflow_dispatch
   # push:
   # workflow_dispatch:
   # schedule:
