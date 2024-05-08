@@ -27,6 +27,7 @@ jobs:
           # certificate_authority_data: ${{ secrets.CA_DATA }}
           namespace: ${{ secrets.OPENSHIFT_NAMESPACE }}
           insecure_skip_tls_verify: true
+          reveal_cluster_name: true
 
       - name: Test
         run: |
