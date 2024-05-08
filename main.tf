@@ -22,7 +22,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "s3Bucket" {
-     bucket = "[BUCKET_NAME_HERE]"
+     bucket = "test-tf-state-in-s3-bolauder"
      acl       = "public-read"
 
      policy  = <<EOF
@@ -35,7 +35,7 @@ resource "aws_s3_bucket" "s3Bucket" {
              "s3:GetObject"
           ],
          "effect" : "Allow",
-         "resource" : "arn:aws:s3:::[BUCKET_NAME_HERE]/*",
+         "resource" : "arn:aws:s3:::test-tf-state-in-s3-bolauder/*",
          "principal" : "*"
       }
     ]
