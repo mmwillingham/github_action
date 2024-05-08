@@ -28,8 +28,8 @@ jobs:
       
       - name: Echo
         run: |
-          echo "TEST_USER is: $TEST_USER_SECRET" or $TEST_USER_VAR"
-          echo "TEST_USER is: ${{ vars.TEST_USER_SECRET }} or ${{ vars.TEST_USER_VAR }}"
+          echo "TEST_USER is: $TEST_USER_SECRET or $TEST_USER_VAR"
+          echo "TEST_USER is: ${{ secrets.TEST_USER }} or ${{ vars.TEST_USER }}"
           
           
       - name: Log in and set context
