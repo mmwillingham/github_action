@@ -17,7 +17,7 @@ jobs:
 
       - shell: bash
         env:
-          TEST_USER: ${{ secrets.SuperSecret }}
+          TEST_USER: ${{ secrets.TEST_USER }}
         run: |
           echo "$TEST_USER" # this line, log your TEST_USER
       
