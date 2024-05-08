@@ -17,3 +17,5 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "The TEST_USER is ${{secrets.TEST_USER}}."
+      - name: Print only the secret
+        run: echo "${{secrets.TEST_USER}}"
