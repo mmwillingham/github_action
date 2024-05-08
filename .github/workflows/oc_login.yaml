@@ -15,6 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Echo
+        run: |
+          echo ${{ env.TEST_USER }}
+          
+          
       - name: Log in and set context
         # In a real workflow, point the 'uses' to a tag.
         # uses: redhat-actions/oc-login@v1
@@ -29,11 +34,6 @@ jobs:
           namespace: ${{ secrets.OPENSHIFT_NAMESPACE }}
           insecure_skip_tls_verify: true
           reveal_cluster_name: true
-          
-      - name: Echo
-        run: |
-          echo ${{ env.TEST_USER }}; echo $openshift_username
-          echo $reveal_cluster_name
           
       
       - name: Test
