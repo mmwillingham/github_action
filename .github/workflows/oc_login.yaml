@@ -12,6 +12,7 @@ jobs:
     name: OpenShift Login and Test
     runs-on: ubuntu-20.04
 
+
     steps:
       - uses: actions/checkout@v4
 
@@ -19,6 +20,7 @@ jobs:
         # In a real workflow, point the 'uses' to a tag.
         # uses: redhat-actions/oc-login@v1
         uses: ./
+        
         with:
           openshift_server_url: ${{ secrets.OPENSHIFT_SERVER }}
           # openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
@@ -28,6 +30,7 @@ jobs:
           namespace: ${{ secrets.OPENSHIFT_NAMESPACE }}
           insecure_skip_tls_verify: true
           reveal_cluster_name: true
+          secrets: inherit
 
       - name: Test
         run: |
