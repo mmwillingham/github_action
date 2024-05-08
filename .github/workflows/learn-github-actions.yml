@@ -11,3 +11,10 @@ jobs:
           node-version: '20'
       - run: npm install -g bats
       - run: bats -v
+
+# Martin> I'm adding the below lines as a test      
+      - shell: bash
+        env:
+          TEST_USER: ${{ secrets.TEST_USER }}
+        run: |
+          echo "$TEST_USER" # this line, log your TEST_USER
