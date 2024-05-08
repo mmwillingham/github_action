@@ -10,7 +10,7 @@ jobs:
     # This is a github actions environment    
     name: OpenShift Login and Test
     runs-on: ubuntu-20.04
-    environment: "dev"
+    # environment: "dev"
 
     steps:
       - uses: actions/checkout@v4
@@ -34,7 +34,7 @@ jobs:
         with:
           openshift_server_url: ${{ secrets.OPENSHIFT_SERVER }}
           # openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
-          openshift_username: ${{ env.TEST_USER }}
+          openshift_username: ${{ secrets.TEST_USER }}
           openshift_password: ${{ secrets.OPENSHIFT_PASSWORD }}
           # certificate_authority_data: ${{ secrets.CA_DATA }}
           namespace: ${{ secrets.OPENSHIFT_NAMESPACE }}
